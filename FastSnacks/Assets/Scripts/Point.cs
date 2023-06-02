@@ -18,7 +18,6 @@ public class Point : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().AddPoint();
             Destroy(gameObject);
         }
     }
