@@ -21,6 +21,21 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("Introducao");
     }
 
+    public void GoToTransitionScene1()
+    {
+        SceneManager.LoadScene("TransitionScene1");
+    }
+
+    public void GoToTransitionScene2()
+    {
+        SceneManager.LoadScene("TransitionScene2");
+    }
+
+    public void GoToTutorial()
+    {
+        SceneManager.LoadScene("Fase0");
+    }
+
     public void OnButtonExit()
     {
         Application.Quit();

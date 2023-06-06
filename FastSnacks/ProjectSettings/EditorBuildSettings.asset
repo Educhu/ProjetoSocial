@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Introducao.unity
     guid: 144826a3b22377c459b14b75b33a501d
   - enabled: 1
-    path: Assets/Scenes/Swap.unity
-    guid: bb31287bff016e248bb93812a08321e4
+    path: Assets/Scenes/Fase0.unity
+    guid: 2d316391cf5d00148991d96a98bf2654
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene1.unity
+    guid: 3872ffa55af97834fab5f63f5922f183
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene2.unity
+    guid: 4f59454d6558f4b4e997c2d3bc2fd72a
   m_configObjects: {}

@@ -14,8 +14,8 @@ public class Introducao : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-            SceneManager.LoadScene("Fase1", LoadSceneMode.Single);
+        if (Input.GetKeyDown("space") || Input.GetButtonDown("VERDE0") && timer >= 30)
+            SceneManager.LoadScene("Fase0", LoadSceneMode.Single);
 
         timer += Time.deltaTime;
 

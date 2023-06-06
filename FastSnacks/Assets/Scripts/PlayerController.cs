@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     public float minHeight = -4.3f;
     public float maxHeight = 0.0f;
     public float midPos = -2.3f;
-    public int timer;
+    public float timer;
     public Rigidbody2D rb;
+    public GameObject sapoTomate;
 
     public int flag1 = 0;
     public int flag2 = 0;
@@ -37,25 +38,16 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
             SceneManager.LoadScene("GameOver");
 
-        if (rb.transform.position.y == -4.3f || rb.transform.position.y == 0.0f || rb.transform.position.y == -2.3f)
-            anim.SetBool("isIdle", true);
+        if (Input.GetKeyDown("space"))
+            sapoTomate.SetActive(true);
     }
 
     public void PlayerMove()
     {
-        //if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maxHeight)
-        //{
-        //    anim.SetTrigger("Up");
-        //    targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minHeight)
-        //{
-        //    anim.SetTrigger("Down");
-        //    targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
-        //}
-
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
+        anim.SetBool("up", false);
+        anim.SetBool("down", false);
         if (targetPos.y > maxHeight)
         {
             targetPos.y = maxHeight;
@@ -65,19 +57,19 @@ public class PlayerController : MonoBehaviour
             targetPos.y = minHeight;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             GameObject.FindGameObjectWithTag("Obstacles").GetComponent<Obstacle>().IncreaseSpeed();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             GameObject.FindGameObjectWithTag("Obstacles").GetComponent<Obstacle>().ReduceSpeed();
         }
 
         if (Input.GetAxis("VERTICAL0") == 1 && transform.position.y < maxHeight)
         {
-            anim.SetTrigger("Up");
+            anim.SetBool("up", true);
             anim.SetBool("isIdle", false);
 
             if (flag1 == 0) targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
@@ -87,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("VERTICAL0") == -1 && transform.position.y > minHeight)
         {
-            anim.SetTrigger("Down");
+            anim.SetBool("down", true);
             anim.SetBool("isIdle", false);
 
             if (flag2 == 0) targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
@@ -117,18 +109,18 @@ public class PlayerController : MonoBehaviour
     {
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().timer;
 
-        if (points >= 15 && timer < 7000 && SceneManager.GetActiveScene().name == "Fase1")
+        if (points >= 10 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase1")
         {
-            SceneManager.LoadScene("Fase2");
+            SceneManager.LoadScene("TransitionScene1");
         }
-        else if (timer > 7000)
+        else if (timer > 3600)
         {
             SceneManager.LoadScene("GameOver");
         }
 
-        if(points >= 15 && timer < 7000 && SceneManager.GetActiveScene().name == "Fase2")
+        if (points >= 10 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase2")
         {
-            SceneManager.LoadScene("SceneFinal");
+            SceneManager.LoadScene("TransitionScene2");
         }
     }
 }
