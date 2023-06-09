@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().timer;
 
-        if (points >= 10 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase1")
+        if (points >= 15 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase1")
         {
             SceneManager.LoadScene("TransitionScene1");
         }
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
 
-        if (points >= 10 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase2")
+        if (points >= 15 && timer < 3600 && SceneManager.GetActiveScene().name == "Fase2")
         {
             SceneManager.LoadScene("TransitionScene2");
         }

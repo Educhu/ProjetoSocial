@@ -1150,7 +1150,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "No caminho voc\xEA encontrar\xE1 moedas que ser\xE3o importantes para
-    o progresso de sua entrega, pegue 10 delas para concluir a entrega."
+    o progresso de sua entrega, pegue 15 delas para concluir a entrega."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7b8c289883546a45885e47d156d98e9, type: 2}
   m_sharedMaterial: {fileID: -4308369578640686004, guid: f7b8c289883546a45885e47d156d98e9, type: 2}
